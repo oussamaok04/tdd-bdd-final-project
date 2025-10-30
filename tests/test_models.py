@@ -162,8 +162,8 @@ class TestProductModel(unittest.TestCase):
         products = Product.all()
         first_product_name = products[0].name
         occurences = 0
-        for j in range(len(products)):
-            if products[j].name == first_product_name:
+        for product in products:
+            if product.name == first_product_name:
                 occurences += 1
         products_to_search = Product.find_by_name(first_product_name)
         self.assertEqual(occurences, products_to_search.count())
